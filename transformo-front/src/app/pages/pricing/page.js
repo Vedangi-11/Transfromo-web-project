@@ -5,7 +5,7 @@ function page() {
     return (
         <div>
         <Navbar/>
-            <div className="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply h-[650px] pt-[60px]">
+            <div className="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply h-[720px] pt-[60px]">
                 <h2 class="text-4xl font-extrabold text-white p-6 pt-[60px]">Choose your plan</h2>
 
 

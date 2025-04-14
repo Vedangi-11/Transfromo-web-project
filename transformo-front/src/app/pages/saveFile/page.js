@@ -38,7 +38,7 @@ function Page() {
         }
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:5000/api/files/download/${savefileId}?format=${format}`, {
+            const response = await axios.get(`http://localhost:5000/api/files/downloadsaved/${savefileId}?format=${format}`, {
                 headers: { Authorization: `Bearer ${token}` },
                 responseType: 'blob',
             });

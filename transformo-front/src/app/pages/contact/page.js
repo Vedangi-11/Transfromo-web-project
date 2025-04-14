@@ -12,8 +12,8 @@ function page() {
                         <h2 className="text-4xl font-extrabold text-white mb-6 mt-[20px]">We’d Love to Hear From You!</h2>
                         <ul className="space-y-2 text-white text-lg">
                             <li><strong>Email:</strong> support@transformo.com</li>
-                            <li><strong>Phone:</strong> +91 98765 43210</li>
-                            <li><strong>Location:</strong> Bengaluru, India</li>
+                            <li><strong>Phone:</strong> +91 xxxxxxxxxx</li>
+                            <li><strong>Location:</strong> abc , India</li>
                         </ul>
                     </div>
 

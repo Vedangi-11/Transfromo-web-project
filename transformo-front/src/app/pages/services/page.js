@@ -5,7 +5,7 @@ function page() {
     return (
         <div>
         <Navbar/>
-            <div className="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply h-[650px] pt-[60px]">
+            <div className="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply h-[720px] pt-[60px]">
                 <h2 class="text-4xl font-extrabold text-white p-6 pt-[60px]">Our Services</h2>
                 <p class="text-lg text-white p-6 w-[1300px] relative bottom-[40px]">Transformo is on a mission to simplify document management using cutting-edge AI and OCR technology. We aim to help individuals and businesses handle documents with unmatched efficiency and accuracy.</p>
 
