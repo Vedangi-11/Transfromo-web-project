@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
@@ -9,6 +9,7 @@ function Page() {
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState("");
     const [fileId, setFileId] = useState(null);
+    const [token, setToken] = useState(null);
     const dispatch = useDispatch();
     const router = useRouter();
     const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -37,7 +38,10 @@ function Page() {
         alert('You are logged out now');
         router.push('/pages/logi?logout=true');
     };
-    const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        setToken(storedToken);
+    }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!file) {
