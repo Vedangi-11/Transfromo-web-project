@@ -11,7 +11,7 @@ function Page() {
     const [fileId, setFileId] = useState(null);
     const dispatch = useDispatch();
     const router = useRouter();
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         if (selectedFile) {
@@ -57,7 +57,7 @@ function Page() {
                     "Authorization": `Bearer ${token}`
                 }
             };
-            const response = await axios.post(`${API_BASE}/api/files/upload`,
+            const response = await axios.post(`${API_BASE}/files/upload`,
                 formData, config);
             if (response.data.success) {
                 alert("File saved in database successfully!");
@@ -77,7 +77,7 @@ function Page() {
         }
         try {
             const token = localStorage.getItem('token'); // Get token from localStorage
-            const response = await axios.get(`${API_BASE}/api/files/download/${fileId}?format=${format}`, {
+            const response = await axios.get(`${API_BASE}/files/download/${fileId}?format=${format}`, {
                 headers: { 'Authorization': `Bearer ${token}` }, // Add Authorization header
                 responseType: 'blob',
             });

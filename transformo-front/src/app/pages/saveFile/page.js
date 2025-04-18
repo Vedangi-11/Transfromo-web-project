@@ -7,12 +7,12 @@ import savefile from '../../image/savefileicon.png';
 function Page() {
     const [files, setFiles] = useState([]);
     const [openDropdownId, setOpenDropdownId] = useState(null);
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
     useEffect(() => {
         const fetchFiles = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`${API_BASE}/api/files/savedfile`, {
+                const response = await axios.get(`${API_BASE}/files/savedfile`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -38,7 +38,7 @@ function Page() {
         }
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`${API_BASE}/api/files/downloadsaved/${savefileId}?format=${format}`, {
+            const response = await axios.get(`${API_BASE}/files/downloadsaved/${savefileId}?format=${format}`, {
                 headers: { Authorization: `Bearer ${token}` },
                 responseType: 'blob',
             });
@@ -62,7 +62,7 @@ function Page() {
     
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`${API_BASE}/api/files/savedfile/${fileId}`, {
+            await axios.delete(`${API_BASE}/files/savedfile/${fileId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

@@ -12,11 +12,11 @@ function Page() {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const nav = useRouter();
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${API_BASE}/api/user/login`, {
+      const response = await axios.post(`${API_BASE}/user/login`, {
         email,
         password,
       });
