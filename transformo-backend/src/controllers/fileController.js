@@ -1,4 +1,4 @@
-const File = require('../models/File');
+const File = require('../models/file');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs').promises;
@@ -70,7 +70,7 @@ const downloadFile = async (req, res) => {
                 console.error('Download error:', err);
                 res.status(500).json({ success: false, message: 'Error downloading file.' });
             } else {
-                await fs.unlink(tempFilePath); // Clean up temp file
+                await fs.unlink(tempFilePath);
             }
         });
     } catch (error) {
@@ -90,7 +90,7 @@ const saveFile = async (req, res) => {
         }
 
         const updatedFile = await File.findOneAndUpdate(
-            { fileId: fileId, uploadedBy: userId }, // ✅ FIXED: match on `fileId`
+            { fileId: fileId, uploadedBy: userId }, 
             { saveForLater },
             { new: true }
         );
