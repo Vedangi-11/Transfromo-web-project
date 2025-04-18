@@ -12,11 +12,11 @@ function Page() {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const nav = useRouter();
-
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/user/login', {
+      const response = await axios.post(`${API_BASE}/api/user/login`, {
         email,
         password,
       });
@@ -34,7 +34,7 @@ function Page() {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
         alert('Login successful!');
-        nav.push("/pages/uploadfile");
+        nav.push("/pages/convertfile");
       } else {
         console.error('Login failed:', response.data.message);
       }

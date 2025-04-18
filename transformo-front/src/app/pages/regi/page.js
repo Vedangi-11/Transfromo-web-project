@@ -12,6 +12,7 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const dispatch = useDispatch();
     const router=useRouter();
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -19,7 +20,7 @@ function Register() {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:5000/api/user/registeruser', {
+            const response = await axios.post(`${API_BASE}/api/user/registeruser`, {
                 username,
                 email,
                 password,
