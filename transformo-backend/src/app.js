@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://transfromo-web-project.vercel.app/', // or '*' during development
+  origin: 'https://transfromo-web-project.vercel.app', // or '*' during development
   credentials: true
 }));
 app.use(express.urlencoded({ extended: true }));
