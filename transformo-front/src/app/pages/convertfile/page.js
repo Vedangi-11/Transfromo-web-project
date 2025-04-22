@@ -101,7 +101,7 @@ function Page() {
     const handleSaveForLater = async (fileId, saveForLaterValue) => {
         try {
             const response = await axios.put(
-                `${API_BASE}/api/files/save/${fileId}`,
+                `${API_BASE}/files/save/${fileId}`,
                 { saveForLater: saveForLaterValue },
                 {
                     headers: {
