@@ -78,14 +78,14 @@ function Page() {
     };
 
     return (
-        <div>
-            <h2 className="p-[50px] font-medium text-xl">Saved Files</h2>
+        <div className="p-10">
+            <h2 className="font-medium text-xl mb-6">Saved Files</h2>
             {files.length === 0 ? (
-                <p className="p-[50px]">No files found.</p>
+                <p>No files found.</p>
             ) : (
-                files.map((file) => (
-                    <div key={file._id}>
-                        <div className="w-[200px] max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 m-[40px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {files.map((file) => (
+                        <div key={file._id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
                             <div className="flex justify-end px-4 pt-4 relative">
                                 <button
                                     onClick={() => toggleDropdown(file._id)}
@@ -117,12 +117,12 @@ function Page() {
                                                 </button>
                                             </li>
                                             <li>
-                                            <button
-    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-    onClick={() => handleDel(file.fileId)}
->
-    Delete
-</button>
+                                                <button
+                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                    onClick={() => handleDel(file.fileId)}
+                                                >
+                                                    Delete
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>
@@ -133,11 +133,11 @@ function Page() {
                                 <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{file.title}</h5>
                             </div>
                         </div>
-                    </div>
-                ))
+                    ))}
+                </div>
             )}
         </div>
-    );
+    );    
 }
 
 export default Page;
